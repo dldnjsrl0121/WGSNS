@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-              <p>
-                  <a href="google.com">change Description</a>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const onSubmit = function (e) {
+        alert('submittted');
+        console.log(username);
+        console.log(password);
+    };
+
+    return (
+        <div>
+            <h1>
+                useState Practice
+            </h1>
+            <form onSubmit={onSubmit}>
+                    <input placeholder="id" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <br />
+                <input placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type ="submit" value="submit" />
+                </form>
+            </div>
+    );
+}
+
+function write() {
+
 }
 
 export default App;
