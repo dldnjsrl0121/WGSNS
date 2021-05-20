@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import './App.css';
 
 function App() {
     const [exCount, newCount] = useState(0);
-
-    const counter = function (incrementBy) {
-        newCount(exCount + incrementBy);
+    const [exCount2, newCount2] = useState(0);
+    useEffect(() => {
+        console.log(exCount);
+    },[exCount,exCount2]);
+    const counter = function (incrementBy,exC,newC) {
+        newC(exC + incrementBy);
     }
 
     return (
@@ -13,7 +16,8 @@ function App() {
             <h1>
                 useState Practice
             </h1>
-            <button onClick={() => counter(3)}>Counter {exCount}</button>
+            <button onClick={() => counter(1,exCount,newCount)}>Counter {exCount}</button>
+            <button onClick={() => counter(2,exCount2,newCount2)}>Counter {exCount2}</button>
             </div>
     );
 }
